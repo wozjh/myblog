@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -17,3 +18,14 @@ class Testadd(models.Model):
 
     def __unicode__(self):
         return self.address
+
+class Article(models.Model):
+    title = models.CharField(u'标题', max_length=30)
+    content = models.TextField(u'内容')
+
+    pub_date = models.DateTimeField(u'发布时间', auto_now_add=True, editable=True)
+    update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
+
+    def __unicode__(self):
+        return self.title
+
