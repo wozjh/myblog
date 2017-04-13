@@ -11,9 +11,12 @@ if django.VERSION >= (1.7):
 def main():
     from audio.models import Person
     with open('oldblog.txt') as f:
+        PersonList = []
         for line in f:
             name, age = line.split('****')
-            Person.objects.get_or_create(name=name, age=age)
+            PersonList.append(Person(name=name, age=age))
+
+    Person.objects.bulk_create(PersonList)
 
 if __name__ == "__main__":
     main()
