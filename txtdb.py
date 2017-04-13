@@ -13,7 +13,7 @@ def main():
     with open('oldblog.txt') as f:
         for line in f:
             name, age = line.split('****')
-            Person.objects.create(name=name, age=age)
+            Person.objects.get_or_create(name=name, age=age)
 
 if __name__ == "__main__":
     main()
