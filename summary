@@ -1,0 +1,13 @@
+**Django自带数据库导出、导入
+导出：
+- python manage.py dumpdata [appname] > appname_data.json
+
+导入：
+- python manage.py loaddata appname_data.json (不需要指定appname，但数据库相应的表一定要存在）
+
+**数据库自身的导出、导入
+psql导出整个数据库：
+- pg_dump -U postgres -f file_path database_name
+
+psql导入整个数据库：
+- psql -d database_name -f file_path postgres
